@@ -1,0 +1,19 @@
+<form (submit)="onSubmit()">
+  <input type="text" name="recipeName" placeholder="Name" [(ngModel)]="recipeName" required><br>
+  <input type="text" name="recipeImgUrl" placeholder="Image URL" [(ngModel)]="recipeImgUrl" required><br>
+  <input type="text" name="recipeDesc" placeholder="Desc" [(ngModel)]="recipeDesc" required><br>
+  <button type="submit" class="btn btn-primary">Add Recipe</button>
+</form>
+
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<div class="row">
+    <div class="recipes" *ngFor="let recipe of recipes">
+      <img [src]="recipe.imgUrl" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">{{ recipe.name }}</h3>
+        <p class="card-text">{{ recipe.desc }} </p>
+        <button (click)="deleteRecipe(recipe.id)" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+</div>

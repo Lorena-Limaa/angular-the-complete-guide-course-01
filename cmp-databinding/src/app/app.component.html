@@ -1,0 +1,24 @@
+<div class="container">  
+  <!-- When a server/blueprint is created, call the onServerAdded/onBlueprintAdded method with the event data -->
+  <app-cockpit
+   (serverCreated)="onServerAdded($event)"
+   (bluePrintCreated)="onBlueprintAdded($event)"></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onChangeFirst()">Change first Element</button>
+      <button class="btn btn-danger" (click)="onDestroyFirst()">Destroy first component</button>
+      <!-- Using ngFor to iterate through serverElements array and display server elements -->
+      <app-server-element
+       *ngFor="let serverElement of serverElements"
+       [element]="serverElement"
+       [name]="serverElement.name">
+        <p #contentParagraph>
+          <!-- Displaying the content of the element based on its type -->
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+        </p>
+      </app-server-element>      
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<label>Server Name</label>
+
+<!-- <input
+ type="text" 
+ class="form-control"
+ (input)="onUpdateServerName($event)"> -->
+
+ <!-- "$event" is used to fetch the event data -->
+
+ <input
+ type="text" 
+ class="form-control"
+ [(ngModel)]="serverName">
+
+<!-- <p>{{ serverName }}</p> -->
+
+<!-- Two-way data binding, we combine property and event binding -->
+
+<button 
+    class="btn btn-primary"
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()">Add Server</button>
+
+<!-- <p>{{ serverCreationStatus }}</p> -->
+
+<p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
+
+<!-- Structural Directive, this paragraph will only be shown if the serverCreated property is true. Otherwise, it won't be shown -->
+
+<!-- Using Angular's ngFor directive to loop through the 'servers' array and create an 'app-server' component for each item -->
+<app-server *ngFor="server of servers"></app-server>
+
+<!-- Property Binding, the button will remain disabled only if the property "allowNewServer" is false -->
+<!-- Event Binding, when the button is clicked the property value will be switched by calling the "onCreateServer()" method -->

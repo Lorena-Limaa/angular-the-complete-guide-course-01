@@ -1,0 +1,8 @@
+<!-- Using Angular's ngStyle directive to dynamically set the background color based on the result of getColor() method -->
+<!-- Using Angular's ngClass directive to dynamically set the online class based on the result of serverStatus property -->
+<p 
+    [ngStyle]="{backgroundColor: getColor()}"
+    [ngClass]="{online: serverStatus === 'online'}">
+    {{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}
+</p>
+

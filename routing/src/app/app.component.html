@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <!-- Home tab with router link -->
+        <!-- Applies 'active' class when the associated route is active -->
+        <li role="presentation" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}"> <!-- Options to match the exact route -->
+          <a routerLink="/">Home</a> <!-- Link to the Home route -->
+        </li>
+        <!-- Servers tab with router link -->
+        <li role="presentation" routerLinkActive="active"> <!-- Applies 'active' class when the associated route is active -->
+          <a routerLink="servers">Servers</a> <!-- Link to the Servers route -->
+        </li>
+        <!-- Users tab with router link (using property binding) -->
+        <li role="presentation" routerLinkActive="active"> <!-- Applies 'active' class when the associated route is active -->
+          <a [routerLink]="['users']">Users</a> <!-- Link to the Users route -->
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!-- Router outlet where Angular will render the appropriate component based on the current route -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

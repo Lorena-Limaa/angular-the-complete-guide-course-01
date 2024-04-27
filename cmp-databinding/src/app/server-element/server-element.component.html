@@ -1,0 +1,16 @@
+<div
+    class="panel panel-default">
+    <!-- Displaying the name of the element -->
+    <!-- <div class="panel-heading">{{ element.name }}</div> -->
+
+    <!-- Using the "name" input property to display the name -->
+    <div class="panel-heading" #heading>{{ name }}</div> 
+    <div class="panel-body">
+        <!-- <p>
+             Displaying the content of the element based on its type 
+            <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+            <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+        </p> -->
+        <ng-content></ng-content>
+    </div>
+</div>

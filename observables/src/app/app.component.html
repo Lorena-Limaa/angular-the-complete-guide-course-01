@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <a routerLink="/">Home</a> | <!-- Link to the Home component -->
+      <a [routerLink]="['user', 1]"> <!-- Link to User 1 component with dynamic parameter -->
+        User 1
+      </a>
+      |
+      <a [routerLink]="['user', 2]"> <!-- Link to User 2 component with dynamic parameter -->
+        User 2
+      </a>
+    </div>
+  </div>
+  <hr />
+  <p *ngIf="userActivated">Activated!</p>
+  <hr />
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <router-outlet></router-outlet> <!-- Placeholder where routed components will be displayed -->
+    </div>
+  </div>
+</div>
